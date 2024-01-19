@@ -1,16 +1,24 @@
 package org.example.models;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-
+@Entity
+@Table
 public class Person {
+    @Id
+    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int id;
     @NotEmpty(message = "Name should not be empty")
     @Size(min = 1, max = 30, message = "Name should be between 2 and 30 characters")
+    @Column
     private String name;
     @Min(value = 0, message = "Age should be greater than 0")
+    @Column
     private int age;
     @NotEmpty(message = "Email should not be empty")
     @Email
+    @Column
     private String email;
 
     public Person(int id, String name, int age, String email) {

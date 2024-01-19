@@ -30,6 +30,7 @@ public class PeopleController {
     }
     @GetMapping("/new")
     public String newPerson(Model model){
+        System.out.println("new");
         model.addAttribute("person", new Person());
         return "people/new";
     }
